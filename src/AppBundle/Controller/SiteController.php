@@ -36,6 +36,9 @@ class SiteController extends Controller
      *
      * @Route("/{id}", name="site_show")
      * @Method("GET")
+     * @param Site $site
+     *
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function showAction(Site $site)
     {

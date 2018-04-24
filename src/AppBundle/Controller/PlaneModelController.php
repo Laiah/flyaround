@@ -36,6 +36,9 @@ class PlaneModelController extends Controller
      *
      * @Route("/new", name="planemodel_new")
      * @Method({"GET", "POST"})
+     * @param Request $request
+     *
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
     public function newAction(Request $request)
     {
@@ -62,6 +65,8 @@ class PlaneModelController extends Controller
      *
      * @Route("/{id}", name="planemodel_show")
      * @Method("GET")
+     * @param PlaneModel $planeModel
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function showAction(PlaneModel $planeModel)
     {
@@ -78,6 +83,9 @@ class PlaneModelController extends Controller
      *
      * @Route("/{id}/edit", name="planemodel_edit")
      * @Method({"GET", "POST"})
+     * @param Request    $request
+     * @param PlaneModel $planeModel
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
     public function editAction(Request $request, PlaneModel $planeModel)
     {
@@ -103,6 +111,9 @@ class PlaneModelController extends Controller
      *
      * @Route("/{id}", name="planemodel_delete")
      * @Method("DELETE")
+     * @param Request    $request
+     * @param PlaneModel $planeModel
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function deleteAction(Request $request, PlaneModel $planeModel)
     {
@@ -123,7 +134,7 @@ class PlaneModelController extends Controller
      *
      * @param PlaneModel $planeModel The planeModel entity
      *
-     * @return \Symfony\Component\Form\Form The form
+     * @return \Symfony\Component\Form\Form|\Symfony\Component\Form\FormInterface
      */
     private function createDeleteForm(PlaneModel $planeModel)
     {

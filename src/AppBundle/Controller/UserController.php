@@ -2,39 +2,39 @@
 
 namespace AppBundle\Controller;
 
-use AppBundle\Entity\Flight;
+use AppBundle\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
 
 /**
- * Flight controller.
+ * User controller.
  *
- * @Route("flight")
+ * @Route("user")
  */
-class FlightController extends Controller
+class UserController extends Controller
 {
     /**
-     * Lists all flight entities.
+     * Lists all user entities.
      *
-     * @Route("/", name="flight_index")
+     * @Route("/", name="user_index")
      * @Method("GET")
      */
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
 
-        $flights = $em->getRepository('AppBundle:Flight')->findAll();
+        $users = $em->getRepository('AppBundle:User')->findAll();
 
-        return $this->render('flight/index.html.twig', array(
-            'flights' => $flights,
+        return $this->render('user/index.html.twig', array(
+            'users' => $users,
         ));
     }
 
     /**
-     * Creates a new flight entity.
+     * Creates a new user entity.
      *
-     * @Route("/new", name="flight_new")
+     * @Route("/new", name="user_new")
      * @Method({"GET", "POST"})
      * @param Request $request
      *
@@ -42,104 +42,104 @@ class FlightController extends Controller
      */
     public function newAction(Request $request)
     {
-        $flight = new Flight();
-        $form = $this->createForm('AppBundle\Form\FlightType', $flight);
+        $user = new User();
+        $form = $this->createForm('AppBundle\Form\UserType', $user);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $em->persist($flight);
+            $em->persist($user);
             $em->flush();
 
-            return $this->redirectToRoute('flight_show', array('id' => $flight->getId()));
+            return $this->redirectToRoute('user_show', array('id' => $user->getId()));
         }
 
-        return $this->render('flight/new.html.twig', array(
-            'flight' => $flight,
+        return $this->render('user/new.html.twig', array(
+            'user' => $user,
             'form' => $form->createView(),
         ));
     }
 
     /**
-     * Finds and displays a flight entity.
+     * Finds and displays a user entity.
      *
-     * @Route("/{id}", name="flight_show")
+     * @Route("/{id}", name="user_show")
      * @Method("GET")
-     * @param Flight $flight
+     * @param User $user
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function showAction(Flight $flight)
+    public function showAction(User $user)
     {
-        $deleteForm = $this->createDeleteForm($flight);
+        $deleteForm = $this->createDeleteForm($user);
 
-        return $this->render('flight/show.html.twig', array(
-            'flight' => $flight,
+        return $this->render('user/show.html.twig', array(
+            'user' => $user,
             'delete_form' => $deleteForm->createView(),
         ));
     }
 
     /**
-     * Displays a form to edit an existing flight entity.
+     * Displays a form to edit an existing user entity.
      *
-     * @Route("/{id}/edit", name="flight_edit")
+     * @Route("/{id}/edit", name="user_edit")
      * @Method({"GET", "POST"})
      * @param Request $request
-     * @param Flight  $flight
+     * @param User    $user
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
-    public function editAction(Request $request, Flight $flight)
+    public function editAction(Request $request, User $user)
     {
-        $deleteForm = $this->createDeleteForm($flight);
-        $editForm = $this->createForm('AppBundle\Form\FlightType', $flight);
+        $deleteForm = $this->createDeleteForm($user);
+        $editForm = $this->createForm('AppBundle\Form\UserType', $user);
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('flight_edit', array('id' => $flight->getId()));
+            return $this->redirectToRoute('user_edit', array('id' => $user->getId()));
         }
 
-        return $this->render('flight/edit.html.twig', array(
-            'flight' => $flight,
+        return $this->render('user/edit.html.twig', array(
+            'user' => $user,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         ));
     }
 
     /**
-     * Deletes a flight entity.
+     * Deletes a user entity.
      *
-     * @Route("/{id}", name="flight_delete")
+     * @Route("/{id}", name="user_delete")
      * @Method("DELETE")
      * @param Request $request
-     * @param Flight  $flight
+     * @param User    $user
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
-    public function deleteAction(Request $request, Flight $flight)
+    public function deleteAction(Request $request, User $user)
     {
-        $form = $this->createDeleteForm($flight);
+        $form = $this->createDeleteForm($user);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $em->remove($flight);
+            $em->remove($user);
             $em->flush();
         }
 
-        return $this->redirectToRoute('flight_index');
+        return $this->redirectToRoute('user_index');
     }
 
     /**
-     * Creates a form to delete a flight entity.
+     * Creates a form to delete a user entity.
      *
-     * @param Flight $flight The flight entity
+     * @param User $user The user entity
      *
      * @return \Symfony\Component\Form\Form|\Symfony\Component\Form\FormInterface
      */
-    private function createDeleteForm(Flight $flight)
+    private function createDeleteForm(User $user)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('flight_delete', array('id' => $flight->getId())))
+            ->setAction($this->generateUrl('user_delete', array('id' => $user->getId())))
             ->setMethod('DELETE')
             ->getForm()
         ;
