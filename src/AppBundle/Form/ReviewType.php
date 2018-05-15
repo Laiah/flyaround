@@ -12,16 +12,28 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
+/**
+ * Class ReviewType
+ * @package AppBundle\Form
+ */
 class ReviewType extends AbstractType
 {
     /**
-     * {@inheritdoc}
+     * {@inheritdoc} Including all fields from Review entity.
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('user_rated_id')->add('publicationDate')->add('review_author_id')->add('text')->add('note');
+        $builder
+            ->add('text')
+            ->add('publicationDate')
+            ->add('note')
+            ->add('userRated')
+            ->add('reviewAuthor');
     }
 
+    /**
+     * {@inheritdoc} Targeting Review entity
+     */
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
@@ -30,7 +42,7 @@ class ReviewType extends AbstractType
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritdoc} getName() is now deprecated
      */
     public function getBlockPrefix()
     {
