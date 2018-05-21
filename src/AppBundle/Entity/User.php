@@ -12,6 +12,20 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class User
 {
+    /**
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Flight", mappedBy="pilot")
+     */
+    private $pilots;
+
+    /**
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Reservation", mappedBy="passenger")
+     */
+    private $passengers;
+
+    /**
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Review", mappedBy="reviewAuthor")
+     */
+    private $reviewAuthors;
 
     /**
      * @var int
@@ -19,9 +33,6 @@ class User
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Review", mappedBy="reviewAuthor")
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Flight", mappedBy="pilot")
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Reservation", mappedBy="passenger")
      */
     private $id;
 
@@ -253,8 +264,59 @@ class User
         return $this->isACertifiedPilot;
     }
 
+    /**
+     * @return string
+     */
     public function __toString()
     {
         return $this->firstName . " " . $this->lastName;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getReviewAuthors()
+    {
+        return $this->reviewAuthors;
+    }
+
+    /**
+     * @param mixed $reviewAuthors
+     */
+    public function setReviewAuthors($reviewAuthors)
+    {
+        $this->reviewAuthors = $reviewAuthors;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPassengers()
+    {
+        return $this->passengers;
+    }
+
+    /**
+     * @param mixed $passengers
+     */
+    public function setPassengers($passengers)
+    {
+        $this->passengers = $passengers;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPilots()
+    {
+        return $this->pilots;
+    }
+
+    /**
+     * @param mixed $pilots
+     */
+    public function setPilots($pilots)
+    {
+        $this->pilots = $pilots;
     }
 }

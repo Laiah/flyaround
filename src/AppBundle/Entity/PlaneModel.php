@@ -12,7 +12,10 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class PlaneModel
 {
-
+    /**
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Flight", mappedBy="plane")
+     */
+    private $planes;
     /**
      * @return string
      */
@@ -27,7 +30,6 @@ class PlaneModel
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Flight", mappedBy="plane")
      */
     private $id;
 
