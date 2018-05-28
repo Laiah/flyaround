@@ -53,12 +53,10 @@ class RegistrationType extends AbstractType
     }
 
     /**
-     * {@inheritdoc}
+     * @return null|string
      */
-    public function configureOptions(OptionsResolver $resolver)
+    public function getName()
     {
-        $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\User'
-        ));
+        return $this->getBlockPrefix();
     }
 }
