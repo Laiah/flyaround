@@ -69,13 +69,15 @@ class FlightInfo
         return $d;
     }
 
+
     /**
-     * @param PlaneModel $planeModel
-     * @return float|int
+     * @param $distance
+     * @param $speed
+     * @return string
      */
     public function getDuration($distance, $speed)
     {
-        $duration =  round($distance / $speed) . " hours";
+        $duration =  round($distance / $speed, 2) . " hours";
         return $duration;
     }
 }
