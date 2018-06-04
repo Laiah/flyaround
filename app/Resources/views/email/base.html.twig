@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+</head>
+<body>
+<table class="gmail hide" align="center"><tbody><tr><td>&nbsp;</td></tr></tbody></table>
+<table id="background-table" style="table-layout:fixed" width="100%" cellspacing="0" cellpadding="0" border="0" align="center">
+    <tbody><tr>
+        <td bgcolor="#ececec" align="center">
+            <table class="w640" style="margin:0 10px;" width="640" cellspacing="0" cellpadding="0" border="0">
+                <tbody><tr><td class="w640" width="640" height="20"></td></tr>
+
+                <tr>
+                    <td class="w640" width="640">
+                        <table id="top-bar" class="w640" width="640" cellspacing="0" cellpadding="0" border="0" bgcolor="#00707b">
+                            <tbody><tr>
+                                <td class="w15" width="15"></td>
+                                <td class="w325" width="350" valign="middle" align="left">
+                                    <table class="w325" width="350" cellspacing="0" cellpadding="0" border="0">
+                                        <tbody><tr><td class="w325" width="350" height="8"></td></tr>
+                                        </tbody></table>
+                                    <div class="header-content"><webversion>Version web</webversion><span class="hide">&nbsp;&nbsp;|&nbsp; <preferences lang="fr-FR">Mettre &agrave; jour les pr&eacute;f&eacute;rences</preferences>&nbsp;&nbsp;|&nbsp; <unsubscribe>Se d&eacute;sinscrire</unsubscribe></span></div>
+                                    <table class="w325" width="350" cellspacing="0" cellpadding="0" border="0">
+                                        <tbody><tr><td class="w325" width="350" height="8"></td></tr>
+                                        </tbody></table>
+                                </td>
+                                <td class="w30" width="30"></td>
+                                <td class="w255" width="255" valign="middle" align="right">
+                                    <table class="w255" width="255" cellspacing="0" cellpadding="0" border="0">
+                                        <tbody><tr><td class="w255" width="255" height="8"></td></tr>
+                                        </tbody></table>
+                                    <table cellspacing="0" cellpadding="0" border="0">
+                                        <tbody><tr>
+
+                                            <td valign="middle"><fblike><img src="https://img.createsend1.com/img/templatebuilder/like-glyph.png" alt="Facebook icon"="" width="8" height="14" border="0"></fblike></td>
+                                            <td width="3"></td>
+                                            <td valign="middle"><div class="header-content"><fblike>J'aime</fblike></div></td>
+
+
+                                            <td class="w10" width="10"></td>
+                                            <td valign="middle"><tweet><img src="https://img.createsend1.com/img/templatebuilder/tweet-glyph.png" alt="Twitter icon"="" width="17" height="13" border="0"></tweet></td>
+                                            <td width="3"></td>
+                                            <td valign="middle"><div class="header-content"><tweet>Tweet</tweet></div></td>
+
+
+                                            <td class="w10" width="10"></td>
+                                            <td valign="middle"><forwardtoafriend lang="fr-FR"><img src="https://img.createsend1.com/img/templatebuilder/forward-glyph.png" alt="Forward icon"="" width="19" height="14" border="0"></forwardtoafriend></td>
+                                            <td width="3"></td>
+                                            <td valign="middle"><div class="header-content"><forwardtoafriend lang="fr-FR">Transf&eacute;rer</forwardtoafriend></div></td>
+
+                                        </tr>
+                                        </tbody></table>
+                                    <table class="w255" width="255" cellspacing="0" cellpadding="0" border="0">
+                                        <tbody><tr><td class="w255" width="255" height="8"></td></tr>
+                                        </tbody></table>
+                                </td>
+                                <td class="w15" width="15"></td>
+                            </tr>
+                            </tbody></table>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td id="header" class="w640" width="640" bgcolor="#00707b" align="center">
+
+                        <table class="w640" width="640" cellspacing="0" cellpadding="0" border="0">
+                            <tbody><tr><td class="w30" width="30"></td><td class="w580" width="580" height="30"></td><td class="w30" width="30"></td></tr>
+                            <tr>
+                                <td class="w30" width="30"></td>
+                                <td class="w580" width="580">
+                                    <div id="headline" align="center">
+                                        <p>
+                                            <strong><singleline label="Title">Fly Around</singleline></strong>
+                                        </p>
+                                    </div>
+                                </td>
+                                <td class="w30" width="30"></td>
+                            </tr>
+                            </tbody></table>
+
+
+                    </td>
+                </tr>
+
+                <tr><td class="w640" width="640" height="30" bgcolor="#ffffff"></td></tr>
+                <tr id="simple-content-row"><td class="w640" width="640" bgcolor="#ffffff">
+                        <table class="w640" width="640" cellspacing="0" cellpadding="0" border="0" align="left">
+                            <tbody><tr>
+                                <td class="w30" width="30"></td>
+                                <td class="w580" width="580">
+                                    <repeater>
+
+                                        <layout label="Text only">
+                                            <table class="w580" width="580" cellspacing="0" cellpadding="0" border="0">
+                                                <tbody><tr>
+                                                    <td class="w580" width="580">
+                                                        <p class="article-title" align="left"><singleline label="Title">{% block title2 %}{% endblock %}</singleline></p>
+                                                        <div class="article-content" align="left">
+                                                            <multiline label="Description">{% block description %}{% endblock %}</multiline>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr><td class="w580" width="580" height="10"></td></tr>
+                                                </tbody></table>
+                                        </layout>
+
+                                    </repeater>
+                                </td>
+                                <td class="w30" width="30"></td>
+                            </tr>
+                            </tbody></table>
+                    </td></tr>
+                <tr><td class="w640" width="640" height="15" bgcolor="#ffffff"></td></tr>
+
+                <tr>
+                    <td class="w640" width="640">
+                        <table id="footer" class="w640" width="640" cellspacing="0" cellpadding="0" border="0" bgcolor="#043948">
+                            <tbody><tr><td class="w30" width="30"></td><td class="w580 h0" width="360" height="30"></td><td class="w0" width="60"></td><td class="w0" width="160"></td><td class="w30" width="30"></td></tr>
+                            <tr>
+                                <td class="w30" width="30"></td>
+                                <td class="w580" width="360" valign="top">
+                                    <span class="hide"><p id="permission-reminder" class="footer-content-left" align="left"><span>Vous recevez ce mail car vous &ecirc;tes inscrit dans notre base de donn&eacute;es.</span></p></span>
+                                    <p class="footer-content-left" align="left"><preferences lang="fr-FR">Modifier mon abonnement</preferences> | <unsubscribe>Se d&eacute;sinscrire</unsubscribe></p>
+                                </td>
+                                <td class="hide w0" width="60"></td>
+                                <td class="hide w0" width="160" valign="top">
+                                    <p id="street-address" class="footer-content-right" align="right"></p>
+                                </td>
+                                <td class="w30" width="30"></td>
+                            </tr>
+                            <tr><td class="w30" width="30"></td><td class="w580 h0" width="360" height="15"></td><td class="w0" width="60"></td><td class="w0" width="160"></td><td class="w30" width="30"></td></tr>
+                            </tbody></table>
+                    </td>
+                </tr>
+                <tr><td class="w640" width="640" height="60"></td></tr>
+                </tbody></table>
+        </td>
+    </tr>
+    </tbody></table>
+
+</body>
+</html>

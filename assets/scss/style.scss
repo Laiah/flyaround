@@ -4,6 +4,7 @@
 $color_wild_sand_approx: #f5f5f5;
 $color_blue_approx: #00aee5;
 $white: #fff;
+$blue: #00707b;
 
 //@extend-elements
 //original selectors
@@ -16,10 +17,18 @@ $white: #fff;
   width: 64px;
 }
 
+table {
+  margin: auto;
+  width : 50%;
 
+}
+nav {
+  background-color: $blue;
+}
 body {
   background: $color_wild_sand_approx;
   font: 18px/1.5 sans-serif;
+  text-align: center;
 }
 h1 {
   line-height: 1.2;
